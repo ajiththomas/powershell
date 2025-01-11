@@ -1,0 +1,85 @@
+//Lists files and directories in the current location.
+
+Get-ChildItem (Alias: ls, dir)
+//Changes the current directory.
+Set-Location (Alias: cd)
+
+//Copies files or directories.Copy-Item
+Copy-Item -Path C:\source\file.txt -Destination C:\destination
+
+//Moves files or directories.Move-Item
+Move-Item -Path C:\source\file.txt -Destination C:\destination
+
+//Deletes files or directories.
+Remove-Item -Path C:\temp\file.txt
+
+//Lists all running processes.
+Get-Process
+
+//Displays the status of services.
+Get-Service
+
+//Retrieves event logs from the system.
+Get-EventLog
+Get-EventLog -LogName Application
+
+//Provides detailed system information.
+Get-ComputerInfo
+
+//Networking Information
+Get-ComputerInfo
+
+//Checks network connectivity.
+Test-Connection (Alias: ping)
+Test-Connection -ComputerName google.com -Count 4
+
+//Lists the IP addresses assigned to the system.
+Get-NetIPAddress
+
+//Resolves a hostname to an IP address.
+Resolve-DnsName
+Resolve-DnsName -Name example.com
+
+//Lists local users on the machine.
+Get-LocalUser
+
+//Creates a new local user.
+New-LocalUser -Name "TestUser" -Password (ConvertTo-SecureString "Password123" -AsPlainText -Force) -FullName "Test User"
+
+//Views or sets permissions for files and folders.
+Get-Acl -Path C:\example
+Get-Acl / Set-Acl
+
+//Script and Task Automation
+Start-Job / Get-Job / Receive-Job
+
+//Security and Cryptography
+Start-Job -ScriptBlock { Get-Process }
+Invoke-Command
+
+//Security and Cryptography
+Invoke-Command -ComputerName RemotePC -ScriptBlock { Get-Service }
+
+
+//Computes the hash value of a file.
+Get-FileHash -Path C:\example\file.txt -Algorithm SHA256
+
+//Converts plain text to a secure string.
+ConvertTo-SecureString "password123" -AsPlainText -Force
+
+//Prompts for and retrieves user credentials.
+Get-Credential
+
+$creds = Get-Credential
+
+//Install-Package
+//Installs software packages (via NuGet or other providers).
+
+Install-Package -Name "7zip" -ProviderName Chocolatey
+
+
+cls / Clear-Host: Clears the screen.
+
+Get-Help: Provides help for cmdlets.
+
+Get-Process | Out-File -FilePath C:\temp\processes.txt
